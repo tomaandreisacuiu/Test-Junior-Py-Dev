@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ city }} weather</title>
+</head>
+<style>
+    table {
+        border:1px solid black;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    th, td {
+        border:1px solid black;
+    }
+</style>
+<body>
+    <a href="/">Go back!</a>
+    <h1 style="text-align: center">Weather in {{ city }} for the next three days</h1>
+    <table >
+        <tr>
+            <th>Date</th>
+            <th>Max Temp (C)</th>
+            <th>Min Temp (C)</th>
+            <th>Total Precipitation (mm)</th>
+            <th>Sunrise Hour</th>
+            <th>Sunset Hour</th>
+            <th>Wind Speed (kmh)</th>
+        </tr>
+        {% for entry in weather_3days %}
+        <tr>
+            <td>{{ entry.date }}</td>
+            <td>{{ entry.max_temp }}</td>
+            <td>{{ entry.min_temp }}</td>
+            <td>{{ entry.total_precip }}</td>
+            <td>{{ entry.sunrise_hour }}</td>
+            <td>{{ entry.sunset_hour }}</td>
+            <td>{{ entry.wind_speed }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
